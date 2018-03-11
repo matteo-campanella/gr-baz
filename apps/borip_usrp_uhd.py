@@ -24,7 +24,6 @@ class borip_usrp_uhd(gr.top_block):
 		##################################################
 		self.addr = addr
 		self.subdev = subdev
-
 		##################################################
 		# Variables
 		##################################################
@@ -44,6 +43,7 @@ class borip_usrp_uhd(gr.top_block):
 		#self.source.set_samp_rate(0)
 		#self.source.set_center_freq(0, 0)
 		#self.source.set_gain(0, 0)
+		self.source.set_subdev_spec(self.subdev, 0)
 		self.sink = baz.udp_sink(gr.sizeof_short*2, "", 28888, 1472, False, True)
 
 		##################################################
